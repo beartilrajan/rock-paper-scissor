@@ -24,14 +24,14 @@ function compchoicedisplay(b) {
 
 function getinput() {
     compchoice = Math.floor(Math.random() * 3);
-
     message = prompt("Rock Paper Scissor Game \n - Rock = 0\n - Paper = 1\n - Scissor = 2");
-    if (message.toLowerCase() === rock) {
+    messagelower = message.toLowerCase();
+    if (messagelower === 'rock') {
         humanchoice = 0;
         console.log("Human Choice : Rock");
 
     }
-    else if (message.toLowerCase() === paper) {
+    else if (messagelower === 'paper') {
         humanchoice = 1;
         console.log("Human Choice : Paper");
     }
@@ -44,6 +44,7 @@ function getinput() {
 
 function playRound(a, b) {
     if (a === b) {
+        compchoicedisplay(b);
         console.log("Draw");
     }
     else if (a === rock) {
