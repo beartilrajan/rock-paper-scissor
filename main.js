@@ -99,11 +99,13 @@ function compscore() {
 
 
 function round() {
-    for (let i = 1; i <= 5; i++) {
+    for (let c = 1; c <= 5; c++) {
         getinput();
         playRound(humanchoice, compchoice);
+        console.log(" ");
     }
     console.log("Game Over !!!!");
+    console.log(" ");
     console.log("Total Human Score " + i);
     console.log("Total Computer Score " + j);
 }
