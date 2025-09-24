@@ -1,30 +1,44 @@
 
 
-let Rock = rock;
-let Paper = paper;
-let Scissor = scissor;
+let rock = 0;
+let paper = 1;
+let scissor = 2;
 let compchoice;
 let humanchoice;
 let message;
 let i = 0;
 let j = 0;
+let x;
+
+function compchoicedisplay(b) {
+    if (b === 0) {
+        console.log("Computer Choice : Rock");
+    }
+    else if (b === 1) {
+        console.log("Computer Choice : Paper");
+    }
+    else {
+        console.log("Computer Choice : Scissor");
+    }
+}
 
 function getinput() {
     compchoice = Math.floor(Math.random() * 3);
-    if(compchoice===0){
-        console.log("Rock");
-    }
-    else if(compchoice === 1)
-    {
-        console.log("Paper");
-    }
-    else{
-        console.log("Scissor");
-    }
 
     message = prompt("Rock Paper Scissor Game \n - Rock = 0\n - Paper = 1\n - Scissor = 2");
-    humanchoice = message.toLowerCase();
-    console.log(humanchoice);
+    if (message.toLowerCase() === rock) {
+        humanchoice = 0;
+        console.log("Human Choice : Rock");
+
+    }
+    else if (message.toLowerCase() === paper) {
+        humanchoice = 1;
+        console.log("Human Choice : Paper");
+    }
+    else {
+        humanchoice = 2;
+        console.log("Human Choice : Scissor");
+    }
 
 }
 
@@ -32,34 +46,38 @@ function playRound(a, b) {
     if (a === b) {
         console.log("Draw");
     }
-    else if (a === Rock) {
-        if (b === Paper) {
-            console.log("Paper");
+    else if (a === rock) {
+        if (b === paper) {
+            compchoicedisplay(b);
             console.log("Computer Wins: Paper beats Rock");
             compscore();
         }
         else {
-            console.log("Scissor")
+            compchoicedisplay(b);
             console.log("Human Wins: Rock beats Scissor");
             humanscore();
         }
     }
-    else if (a === Paper) {
-        if (b === Scissor) {
+    else if (a === paper) {
+        if (b === scissor) {
+            compchoicedisplay(b);
             console.log("Computer Wins: Scissor beats Paper");
             compscore();
         }
         else {
+            compchoicedisplay(b);
             console.log("Human Wins: Rock beats Scissor");
             humanscore();
         }
     }
-    else if (a === Scissor) {
-        if (b === Rock) {
+    else if (a === scissor) {
+        if (b === rock) {
+            compchoicedisplay(b);
             console.log("Computer Wins: Rock beats Scissor");
             compscore();
         }
         else {
+            compchoicedisplay(b);
             console.log("Human Wins: Scissor beats Paper");
             humanscore();
         }
@@ -68,13 +86,13 @@ function playRound(a, b) {
 
 function humanscore() {
     i = i + 1;
-    console.log("Human Score "+i);
+    console.log("Human Score " + i);
 
 }
 
 function compscore() {
     j = j + 1;
-    console.log("Computer Score "+j);
+    console.log("Computer Score " + j);
 }
 
 
