@@ -99,7 +99,7 @@ function compscore() {
 
 
 function round() {
-    for (let c = 1; c <= 5; c++) {
+    for (x = 1; x <= 5; x++) {
         getinput();
         playRound(humanchoice, compchoice);
         console.log(" ");
