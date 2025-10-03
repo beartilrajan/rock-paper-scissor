@@ -1,85 +1,99 @@
 
-
-let rock = 0;
-let paper = 1;
-let scissor = 2;
-let compchoice;
+let b;
+let compchoice = b;
 let humanchoice;
 let message;
 let i = 0;
 let j = 0;
 let x;
 
-function compchoicedisplay(b) {
-    if (b === 0) {
-        console.log("Computer Choice : Rock");
+
+
+function compchoicedisplay() {
+    const bot = document.getElementById("bot");
+    compchoice = Math.floor(Math.random() * 3);
+    if (compchoice === 0) {
+        compchoice = "rock";
+        bot.textContent = "Computer Choice : Rock";
     }
-    else if (b === 1) {
-        console.log("Computer Choice : Paper");
+    else if (compchoice === 1) {
+        compchoice = "paper";
+        bot.textContent = "Computer Choice : Paper";
     }
     else {
-        console.log("Computer Choice : Scissor");
+        compchoice = "scissor";
+        bot.textContent = "Computer Choice : Scissor";
     }
 }
 
 function getinput() {
-    compchoice = Math.floor(Math.random() * 3);
-    message = prompt("Rock Paper Scissor Game \n - Rock = 0\n - Paper = 1\n - Scissor = 2");
-    messagelower = message.toLowerCase();
-    if (messagelower === 'rock') {
-        humanchoice = 0;
-        console.log("Human Choice : Rock");
 
-    }
-    else if (messagelower === 'paper') {
-        humanchoice = 1;
-        console.log("Human Choice : Paper");
-    }
-    else {
-        humanchoice = 2;
-        console.log("Human Choice : Scissor");
-    }
+    const input = document.getElementById("input")
+    const Rock = document.getElementById("Rock");
+    Rock.addEventListener("click", function (e) {
+        Rock.textContent = "Rock";
+        input.textContent = "Human choice : Rock";
+        humanchoice = "rock";
+        compchoicedisplay();
+        playRound(humanchoice, compchoice);
+    })
+
+
+    const Paper = document.getElementById("Paper");
+    Paper.addEventListener("click", function (e) {
+        Paper.textContent = "Paper";
+        input.textContent = "Human choice : Paper";
+        humanchoice = "paper";
+        compchoicedisplay();
+        playRound(humanchoice, compchoice);
+    })
+
+    const Scissor = document.getElementById("Scissor");
+    Scissor.addEventListener("click", function (e) {
+        Scissor.textContent = "Scissor";
+        input.textContent = "Human choice : Scissor";
+        humanchoice = "scissor";
+        compchoicedisplay();
+        playRound(humanchoice, compchoice);
+    })
 
 }
 
+
+
+
 function playRound(a, b) {
+    const result = document.getElementById("result");
     if (a === b) {
-        compchoicedisplay(b);
-        console.log("Draw");
+        result.textContent = "Draw";
     }
-    else if (a === rock) {
-        if (b === paper) {
-            compchoicedisplay(b);
-            console.log("Computer Wins: Paper beats Rock");
+    else if (a === "rock") {
+        if (b === "paper") {
+            result.textContent = "Computer Wins: Paper beats Rock";
             compscore();
         }
         else {
-            compchoicedisplay(b);
-            console.log("Human Wins: Rock beats Scissor");
+            result.textContent = "Human Wins: Rock beats Scissor";
             humanscore();
         }
     }
-    else if (a === paper) {
-        if (b === scissor) {
-            compchoicedisplay(b);
-            console.log("Computer Wins: Scissor beats Paper");
+    else if (a === "paper") {
+        if (b === "scissor") {
+            result.textContent = "Computer Wins: Scissor beats Paper";
             compscore();
         }
         else {
-            compchoicedisplay(b);
-            console.log("Human Wins: Rock beats Scissor");
+            result.textContent = "Human Wins: Paper beats Rock";
             humanscore();
         }
     }
-    else if (a === scissor) {
-        if (b === rock) {
-            compchoicedisplay(b);
-            console.log("Computer Wins: Rock beats Scissor");
+    else if (a === "scissor") {
+        if (b === "rock") {
+            result.textContent = "Computer Wins: Rock beats Scissor";
             compscore();
         }
         else {
-            compchoicedisplay(b);
-            console.log("Human Wins: Scissor beats Paper");
+            result.textContent = "Human Wins: Scissor beats Paper";
             humanscore();
         }
     }
@@ -96,18 +110,8 @@ function compscore() {
     console.log("Computer Score " + j);
 }
 
-
-
 function round() {
-    for (x = 1; x <= 5; x++) {
-        getinput();
-        playRound(humanchoice, compchoice);
-        console.log(" ");
-    }
-    console.log("Game Over !!!!");
-    console.log(" ");
-    console.log("Total Human Score " + i);
-    console.log("Total Computer Score " + j);
+    getinput();
 }
 
-round();
+round(); 
