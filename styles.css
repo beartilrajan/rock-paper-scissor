@@ -1,0 +1,141 @@
+* {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Arial", sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      }
+
+      .container {
+        background: white;
+        padding: 40px;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        text-align: center;
+        max-width: 600px;
+      }
+
+      h1 {
+        color: #333;
+        margin-bottom: 30px;
+        font-size: 2.5em;
+      }
+
+      .score-board {
+        display: flex;
+        justify-content: space-around;
+        margin-bottom: 30px;
+        padding: 20px;
+        background: #f5f5f5;
+        border-radius: 10px;
+      }
+
+      .score-item {
+        flex: 1;
+      }
+
+      .score-item h2 {
+        font-size: 1.2em;
+        color: #555;
+        margin-bottom: 10px;
+      }
+
+      .score-item p {
+        font-size: 2em;
+        font-weight: bold;
+        color: #667eea;
+      }
+
+      .buttons {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        margin-bottom: 30px;
+        flex-wrap: wrap;
+      }
+
+      button {
+        padding: 15px 30px;
+        font-size: 1.1em;
+        font-weight: bold;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        color: white;
+        min-width: 100px;
+      }
+
+      #Rock {
+        background-color: #8b8b8b;
+      }
+
+      #Rock:hover {
+        background-color: #6b6b6b;
+        transform: scale(1.05);
+      }
+
+      #Paper {
+        background-color: #ffd700;
+        color: #333;
+      }
+
+      #Paper:hover {
+        background-color: #ffc700;
+        transform: scale(1.05);
+      }
+
+      #Scissor {
+        background-color: #ff6b6b;
+      }
+
+      #Scissor:hover {
+        background-color: #ff5555;
+        transform: scale(1.05);
+      }
+
+      .game-info {
+        background: #f9f9f9;
+        padding: 20px;
+        border-radius: 10px;
+        margin-bottom: 20px;
+      }
+
+      #input,
+      #bot {
+        font-size: 1.1em;
+        color: #555;
+        margin-bottom: 10px;
+        min-height: 25px;
+      }
+
+      #result {
+        font-size: 1.3em;
+        font-weight: bold;
+        color: #667eea;
+        padding: 15px;
+        background: #e8eaf6;
+        border-radius: 8px;
+        min-height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .reset-btn {
+        background-color: #4caf50;
+        padding: 10px 20px;
+        font-size: 1em;
+        margin-top: 20px;
+      }
+
+      .reset-btn:hover {
+        background-color: #45a049;
+      }
